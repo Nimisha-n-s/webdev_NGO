@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InAmigos Foundation</title>
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: #222;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .logo span {
+      white-space: nowrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    .hero {
+      height: 470px;
+      background-size: cover;
+      background-position: center;
+      animation: slider 15s infinite;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 10%;
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 650px;
+    }
+
+    .hero-content h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    @keyframes slider {
+      0%, 25% {
+        background-image: url("images/slide2.png");
+      }
+      26%, 50% {
+        background-image: url("images/slide1.png");
+      }
+      51%, 75% {
+        background-image: url("images/slide3.png");
+      }
+      76%, 100% {
+        background-image: url("images/slide4.png");
+      }
+    }
+
+    .btn {
+      display: inline-block;
+      background: #d90429;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 8px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #a6031f;
+    }
+
+    .action-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 40px 10%;
+      background: white;
+    }
+
+    .action-card {
+      background: #fff0f0;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px #ddd;
+      border-bottom: 5px solid #d90429;
+    }
+
+    .action-card h3 {
+      color: #d90429;
+      margin-bottom: 10px;
+    }
+
+    section {
+      padding: 55px 10%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #d90429;
+      font-size: 34px;
+      margin-bottom: 30px;
+    }
+
+    .box {
+      background: white;
+      padding: 28px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #ddd;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+
+    .about-img{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.about-img img{
+    width:100%;
+    max-width:600px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
+}
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    animation:fade 16s infinite;
+}
+
+    .cert-grid,
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .cert-card {
+      background: white;
+      color: #d90429;
+      padding: 20px;
+      text-align: center;
+      border-radius: 12px;
+      border: 2px solid #d90429;
+      font-weight: bold;
+      box-shadow: 0 0 8px #ddd;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #ddd;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .project-content h3 {
+      color: #d90429;
+      margin-bottom: 10px;
+    }
+
+    .impact-card {
+      background: #d90429;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .volunteer-form input,
+    .volunteer-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .social-links {
+      text-align: center;
+    }
+
+    .social-links a {
+      display: inline-block;
+      background: #d90429;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      margin: 8px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .social-links i {
+      margin-right: 8px;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      padding: 40px 10%;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    footer h3 {
+      color: #ffcccc;
+      margin-bottom: 12px;
+    }
+
+    footer a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 6px 0;
+    }
+
+    @media (max-width: 768px) {
+      .action-cards,
+      .projects,
+      .about-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">
+    <img src="images/logo.png" alt="InAmigos Logo">
+    <span>InAmigos Foundation</span>
+  </div>
+
+  <div>
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About Us</a>
+    <a href="#volunteer">Volunteers</a>
+    <a href="#social">Contact</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Uniting Minds For Change</h1>
+    <p>
+      Join InAmigos Foundation in creating a more compassionate,
+      inclusive and sustainable society.
+    </p>
+    <a class="btn" href="#join">Join Us</a>
+    <a class="btn" href="#projects">View Projects</a>
+  </div>
+</section>
+
+<div class="action-cards" id="join">
+  <div class="action-card">
+    <h3>Donate Us</h3>
+    <p>Make a difference with your donation today.</p>
+
+    <a class="btn" href="https://rzp.io/l/kWQ87HP" target="_blank">
+      Donate ↗
+    </a>
+  </div>
+
+  <div class="action-card">
+    <h3>Become A Volunteer</h3>
+    <p>Join us and be the change you wish to see.</p>
+    <a class="btn" href="#volunteer">Volunteer</a>
+  </div>
+
+  <div class="action-card">
+    <h3>Join Us</h3>
+    <p>Step in, stand out, and create impact.</p>
+    <a class="btn" href="#volunteer">Join Now</a>
+  </div>
+</div>
+
+<section id="about">
+  <h2>About Us</h2>
+
+  <div class="about-grid">
+    <div class="box">
+      <p>
+        <b>InAmigos Foundation</b> was founded on September 23, 2020, by
+        Mr. Govind Shukla. It is a Section 8 registered non-profit organization,
+        licensed by the Central Government and based in Chhattisgarh.
+      </p>
+
+      <p>
+        The foundation holds 80G & 12A certifications, CSR-1 registration,
+        NITI Aayog NGO DARPAN registration and IAF ISO 9001:2015 certification.
+        These recognitions show transparency, accountability and commitment to
+        quality service.
+      </p>
+
+      <p>
+        InAmigos works through projects focused on food distribution, education,
+        women empowerment, animal welfare, environmental conservation and youth
+        development.
+      </p>
+    </div>
+<div class="about-img">
+    <img src="images/About.png" alt="InAmigos Volunteers">
+</div>
+  </div>
+</section>
+
+<section id="trust">
+  <h2>Trust & Certifications</h2>
+
+  <div class="cert-grid">
+    <div class="cert-card">Section 8 Registered NGO</div>
+    <div class="cert-card">Central Government Licensed</div>
+    <div class="cert-card">80G & 12A Certified</div>
+    <div class="cert-card">CSR-1 Registered</div>
+    <div class="cert-card">NGO DARPAN Registered</div>
+    <div class="cert-card">IAF ISO 9001:2015 Certified</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Our Projects</h2>
+
+  <div class="projects">
+    <div class="project-card">
+      <img src="images/seva.png" alt="Project Seva">
+      <div class="project-content">
+        <h3>Project Seva</h3>
+        <p>Providing food, clothes and essential support to the underprivileged.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="images/bachpanshala.jpg" alt="Project Bachpanshala">
+      <div class="project-content">
+        <h3>Project Bachpanshala</h3>
+        <p>Ensuring education and care for underprivileged children.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="images/jeev.jpg" alt="Project Jeev">
+      <div class="project-content">
+        <h3>Project Jeev</h3>
+        <p>Supporting animals through feeding, rescue, protection and care.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="images/udaan.jpg" alt="Project Udaan">
+      <div class="project-content">
+        <h3>Project Udaan</h3>
+        <p>Empowering women through skills, awareness and opportunities.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="images/prakriti.jpg" alt="Project Prakriti">
+      <div class="project-content">
+        <h3>Project Prakriti</h3>
+        <p>Protecting nature through plantation, cleanup and sustainability work.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="images/vikas.jpeg" alt="Project Vikas">
+      <div class="project-content">
+        <h3>Project Vikas</h3>
+        <p>Helping youth grow through skill-building and development programs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <h2>Our Impact</h2>
+
+  <div class="impact-grid">
+    <div class="impact-card">200+<br>Volunteers</div>
+    <div class="impact-card">28<br>States</div>
+    <div class="impact-card">6<br>Projects</div>
+    <div class="impact-card">50,000+<br>Beneficiaries</div>
+  </div>
+</section>
+
+<section id="volunteer">
+  <h2>Become A Volunteer</h2>
+
+  <div class="box">
+    <p>
+      Join InAmigos Foundation and support causes such as food drives,
+      education support, animal care, environmental activities and awareness
+      campaigns.
+    </p>
+
+    <form class="volunteer-form">
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your name">
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email">
+
+      <label>Phone Number</label>
+      <input type="text" placeholder="Enter your phone number">
+
+      <label>Profession</label>
+      <input type="text" placeholder="Student / Volunteer / Other">
+
+      <label>Address</label>
+      <textarea rows="3" placeholder="Enter your address"></textarea>
+
+      <label>Why do you want to join?</label>
+      <textarea rows="4" placeholder="Write your message"></textarea>
+
+      <button class="btn" type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<section id="social">
+  <h2>Follow Us</h2>
+
+  <div class="box social-links">
+    <a href="https://www.facebook.com/share/1CeyCkB3uL/" target="_blank">
+      <i class="fab fa-facebook-f"></i> Facebook
+    </a>
+
+    <a href="https://twitter.com/InamigosF?s=08" target="_blank">
+      <i class="fab fa-x-twitter"></i> Twitter
+    </a>
+
+    <a href="https://instagram.com/inamigos?utm_medium=copy_link" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+
+    <a href="https://www.linkedin.com/company/inamigos-foundation" target="_blank">
+      <i class="fab fa-linkedin-in"></i> LinkedIn
+    </a>
+
+    <a href="https://youtube.com/@inamigosfoundation?si=lcyRib3x-bScUF5M" target="_blank">
+      <i class="fab fa-youtube"></i> YouTube
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h3>InAmigos Foundation</h3>
+      <p>Uniting Minds For Change</p>
+      <p>Building a better world through collective action.</p>
+    </div>
+
+    <div>
+      <h3>Useful Links</h3>
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About Us</a>
+      <a href="#volunteer">Volunteers</a>
+    </div>
+
+    <div>
+      <h3>Contact Us</h3>
+      <p>📍 Ward No. 5, Gram Post, Sipat Ujwal Nagar, Bilaspur, Chhattisgarh</p>
+      <p>📧 inamigosfoundation@gmail.com</p>
+      <p>📞 +91 626 730 9902</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
